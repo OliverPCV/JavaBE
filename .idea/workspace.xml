@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="174f2bb1-002b-4d3b-81ca-86f6026478f9" name="Default Changelist" comment="" />
+    <list default="true" id="174f2bb1-002b-4d3b-81ca-86f6026478f9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/educanet/javaeeapi/UsersManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/educanet/javaeeapi/UsersManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/educanet/javaeeapi/UsersResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/educanet/javaeeapi/UsersResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/JavaEEApi.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/JavaEEApi.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/JavaEEApi/WEB-INF/classes/cz/educanet/javaeeapi/UsersResource.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/JavaEEApi/WEB-INF/classes/cz/educanet/javaeeapi/UsersResource.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cz/educanet/javaeeapi/UsersResource.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cz/educanet/javaeeapi/UsersResource.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,7 +21,11 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1oU6MPDPzsokgAn2zkWGKzlVv0j" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -35,7 +46,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1613328772800</updated>
-      <workItem from="1613328777314" duration="10512000" />
+      <workItem from="1613328777314" duration="10826000" />
+      <workItem from="1615226690394" duration="7199000" />
     </task>
     <servers />
   </component>
@@ -59,5 +71,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1613406123769" />
+    <state x="477" y="241" key="com.intellij.ide.util.TipDialog" timestamp="1615226762035">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="477" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1615226762035" />
   </component>
 </project>

@@ -14,6 +14,19 @@ public class UsersManager {
         user.id++;
         return userList.add(user);
     }
+    public boolean doesUserExist(String username){
+        for (User user : userList){
+            if (user.getJmeno().equals(username)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void saveUser(User user){
+        userList.add(user);
+    }
+
 
     public User dostanJmenos (int id){
         return userList.stream()

@@ -1,16 +1,21 @@
 package cz.educanet.javaeeapi;
 
+import org.graalvm.compiler.lir.LIRInstruction;
+
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-@Path("users")
+@Path("/users")
 @Produces(MediaType.APPLICATION_JSON)
 public class UsersResource {
 
     @Inject
     private UsersManager userManager;
+    //@Inject
+    //private LoggedManager loggedManager;
+
 
     @GET
     public Response dostanVsechny() { return Response.ok(userManager.dostanJmenos()).build(); }
@@ -20,13 +25,29 @@ public class UsersResource {
     public Response dostanUsera(@PathParam("id") int id) { return  Response.ok(userManager.dostanJmenos(id)).build(); }
 
     @POST
+    public Response createUser(User jmeno){
+        if (userManager.doesUserExist(jmeno.getJmeno())) {
+            return Response.status(Response.Status.BAD_REQUEST).entity("user už existuje").build();
+
+        } else {
+            return Response.ok(jmeno).build();
+        }
+    }
+
+    @POST
+    @Path("register")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response vytvorJmeno(User jmeno){
-        if(!userManager.create(jmeno))
-            return Response.status(400).build();
+    public Response regUser(
+            User user
+    ) {
+        if (userManager.doesUserExist(user.getJmeno())) {
+            return Response.status(Response.Status.BAD_REQUEST).entity("user už existuje").build();
 
-        return Response.ok(jmeno).build();
+        } else {
+            userManager.saveUser(user);
+            return Response.ok("Registered").build();
+        }
     }
 
     @DELETE
