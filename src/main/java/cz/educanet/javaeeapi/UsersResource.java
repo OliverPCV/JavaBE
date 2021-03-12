@@ -13,35 +13,33 @@ public class UsersResource {
 
     @Inject
     private UsersManager userManager;
-    //@Inject
-    //private LoggedManager loggedManager;
 
 
     @GET
-    public Response dostanVsechny() { return Response.ok(userManager.dostanJmenos()).build(); }
+    public Response getAllUsers() { return Response.ok(userManager.getUser()).build(); }
 
     @GET
     @Path("{id}")
-    public Response dostanUsera(@PathParam("id") int id) { return  Response.ok(userManager.dostanJmenos(id)).build(); }
+    public Response getUser(@PathParam("id") int id) { return  Response.ok(userManager.getUsername(id)).build(); }
 
     @POST
-    public Response createUser(User jmeno){
-        if (userManager.doesUserExist(jmeno.getJmeno())) {
+    public Response createUser(User user){
+        if (userManager.doesUserExist(user.getUsername())) {
             return Response.status(Response.Status.BAD_REQUEST).entity("user už existuje").build();
 
         } else {
-            return Response.ok(jmeno).build();
+            return Response.ok(userManager.create(user)).build();
         }
     }
 
     @POST
-    @Path("register")
+    @Path("/register")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response regUser(
             User user
     ) {
-        if (userManager.doesUserExist(user.getJmeno())) {
+        if (userManager.doesUserExist(user.getUsername())) {
             return Response.status(Response.Status.BAD_REQUEST).entity("user už existuje").build();
 
         } else {
@@ -52,8 +50,8 @@ public class UsersResource {
 
     @DELETE
     @Path("{id}")
-    public Response odstranUsera(@PathParam("id") int id) {
-        if(userManager.odstranJmenos(id)){ return Response.ok("User byl odstranen ").build(); }
+    public Response deleteUser(@PathParam("id") int id) {
+        if(userManager.deleteUser(id)){ return Response.ok("User byl odstranen ").build(); }
         else
         { return Response.status(Response.Status.BAD_REQUEST).build();  }
     }

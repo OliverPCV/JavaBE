@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class UsersManager {
     private ArrayList<User> userList = new ArrayList<>();
 
-    public ArrayList<User> dostanJmenos(){ return userList; }
+    public ArrayList<User> getUser(){ return userList; }
 
     public boolean create(User user) {
         user.setId(userList.size());
@@ -16,7 +16,7 @@ public class UsersManager {
     }
     public boolean doesUserExist(String username){
         for (User user : userList){
-            if (user.getJmeno().equals(username)){
+            if (user.getUsername().equals(username)){
                 return true;
             }
         }
@@ -28,17 +28,18 @@ public class UsersManager {
     }
 
 
-    public User dostanJmenos (int id){
+    public User getUsername (int id){
         return userList.stream()
-                .filter(userListStream -> id == userListStream.getID())
+                .filter(userListStream -> id == userListStream.getId())
                 .findAny()
                 .orElse(null);
     }
 
-    public boolean odstranJmenos(int id){
-        return  userList.remove(dostanJmenos(id));
+    public boolean deleteUser(int id){
+        return  userList.remove(getUsername(id));
     }
-    public boolean kontrolac(int id) {
+
+    public boolean control(int id) {
         for (int i = 0; i < 100; i++){
             if (id != userList.get(id).id) {
                 return false;
