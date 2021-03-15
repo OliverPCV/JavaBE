@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="174f2bb1-002b-4d3b-81ca-86f6026478f9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cz/educanet/javaeeapi/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/educanet/javaeeapi/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cz/educanet/javaeeapi/UsersManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/educanet/javaeeapi/UsersManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cz/educanet/javaeeapi/UsersResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/educanet/javaeeapi/UsersResource.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/JavaEEApi.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/JavaEEApi.war" afterDir="false" />
     </list>
@@ -49,7 +47,7 @@
       <workItem from="1613328777314" duration="10826000" />
       <workItem from="1615226690394" duration="7793000" />
       <workItem from="1615324637902" duration="5000" />
-      <workItem from="1615578164886" duration="4182000" />
+      <workItem from="1615578164886" duration="5660000" />
     </task>
     <servers />
   </component>

@@ -23,6 +23,7 @@ public class UsersResource {
     public Response getUser(@PathParam("id") int id) { return  Response.ok(userManager.getUsername(id)).build(); }
 
     @POST
+    @Path("/login")
     public Response createUser(User user){
         if (userManager.doesUserExist(user.getUsername())) {
             return Response.status(Response.Status.BAD_REQUEST).entity("user už existuje").build();
@@ -44,7 +45,7 @@ public class UsersResource {
 
         } else {
             userManager.saveUser(user);
-            return Response.ok("Registered").build();
+            return Response.ok(user).build();
         }
     }
 
