@@ -31,6 +31,7 @@ public class UsersResource {
             return Response.status(Response.Status.BAD_REQUEST).entity("user už existuje").build();
 
         } else {
+            userManager.saveUser(user);
             return Response.ok(user).build();
         }
     }
