@@ -24,12 +24,14 @@ public class UsersResource {
 
     @POST
     @Path("/login")
-    public Response createUser(User user){
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response logUser(User user){
         if (userManager.doesUserExist(user.getUsername())) {
             return Response.status(Response.Status.BAD_REQUEST).entity("user už existuje").build();
 
         } else {
-            return Response.ok(userManager.create(user)).build();
+            return Response.ok(user).build();
         }
     }
 
@@ -45,7 +47,7 @@ public class UsersResource {
 
         } else {
             userManager.saveUser(user);
-            return Response.ok(user).build();
+            return Response.ok(userManager.create(user)).build();
         }
     }
 
