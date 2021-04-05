@@ -1,4 +1,8 @@
+cz\educanet\javaeeapi\AuthenticationManager.class
+cz\educanet\javaeeapi\UserToken.class
+cz\educanet\javaeeapi\AuthenticationResource.class
 cz\educanet\javaeeapi\UsersResource.class
 cz\educanet\javaeeapi\ApiConfig.class
 cz\educanet\javaeeapi\UsersManager.class
+cz\educanet\javaeeapi\LoginManager.class
 cz\educanet\javaeeapi\User.class

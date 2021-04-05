@@ -1,50 +1,78 @@
 package cz.educanet.javaeeapi;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 import java.util.ArrayList;
+import java.util.Objects;
+import java.util.Optional;
 
 @ApplicationScoped
 public class UsersManager {
+
+    private int id = 0;
+
+    @Inject
+    private LoginManager loginManager;
+
     private ArrayList<User> userList = new ArrayList<>();
 
-    public ArrayList<User> getUser(){ return userList; }
+    public ArrayList<User> getUsers() {
+        return userList;
+    }
 
-    public boolean create(User user) {
+    public boolean doesUserExist(int id){
+        return userList.stream()
+                .filter(userStream -> id == userStream.getId())
+                .findAny()
+                .orElse(null) != null;
+    }
+
+
+    public boolean createUser(User user) {
         user.setId(userList.size());
-        user.id++;
         return userList.add(user);
     }
-    public boolean doesUserExist(String username){
-        for (User user : userList){
-            if (user.getUsername().equals(username)){
-                return true;
-            }
-        }
-        return false;
+
+    public UserToken checkUser(User user) {
+        Optional<User> tempUser = userList.stream()
+                .filter(u -> u.getUsername().equals(user.getUsername()))
+                .findFirst();
+        if (tempUser.isPresent() && Objects.equals(tempUser.get().getPassword(), user.getPassword()))
+            return loginManager.createToken();
+        return null;
     }
 
-    public void saveUser(User user){
-        userList.add(user);
-    }
-
-
-    public User getUsername (int id){
+    public User getUserById(int id) {
         return userList.stream()
                 .filter(userListStream -> id == userListStream.getId())
                 .findAny()
                 .orElse(null);
     }
 
-    public boolean deleteUser(int id){
-        return  userList.remove(getUsername(id));
+    public boolean deleteUserById(int id) {
+        return userList.remove(id) != null;
     }
 
-    public boolean control(int id) {
-        for (int i = 0; i < 100; i++){
-            if (id != userList.get(id).id) {
-                return false;
+    public boolean editUser(int id, User newUser){
+        /*if (doesUserExist(id)){
+            User currUser = getUserById(id);
+            currUser.setUsername(newUser.getUsername());
+            return  true;
+        } else
+            return false;*/
+        /*User user = getUserById(id);
+        if (user.id == id){
+            user.username = newUser.username;
+            return true;
+
+        } return false;*/
+        for (User user: userList){
+            if (user.id == id){
+                user.username = newUser.username;
+                user.password = newUser.password;
+                return true;
             }
-        }
-        return true;
+        } return false;
     }
+
 }
